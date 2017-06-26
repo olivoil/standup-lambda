@@ -1,0 +1,16 @@
+{
+  "name": "standup",
+  "description": "standup backend",
+  "memory": 128,
+  "timeout": 5,
+  "profile": "standup-dev",
+  "role": "",
+  "environment": {
+    "SLACK_CLIENT_ID": "",
+    "SLACK_CLIENT_SECRET": "",
+    "SLACK_TOKEN": "",
+    "SLACK_STANDUP_CHANNEL": "",
+    "SLACK_AUTHENTICATION_TOKEN": "",
+    "AWS_DYNAMODB_TABLE_STATUS_EVENTS": ""
+  }
+}
