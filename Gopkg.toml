@@ -23,4 +23,4 @@
 
 [[constraint]]
   branch = "master"
-  name = "github.com/apex/go-apex"
+  name = "bitbucket.org/RocksauceStudios/standup-parser"
