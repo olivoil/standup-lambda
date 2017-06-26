@@ -93,24 +93,16 @@ func ConvertStatementToAttachments(stmt *parser.Statement) (attachments []slack.
 		fields := []slack.AttachmentField{}
 
 		if stmt.LP.Valid {
-			key := stmt.LP.Key
-			if key == "" {
-				key = "LP"
-			}
 			fields = append(fields, slack.AttachmentField{
-				Title: key,
+				Title: "LP",
 				Value: stmt.LP.Lit,
 				Short: true,
 			})
 		}
 
 		if stmt.Jira.Valid {
-			key := stmt.Jira.Key
-			if key == "" {
-				key = "Jira"
-			}
 			fields = append(fields, slack.AttachmentField{
-				Title: key,
+				Title: "Jira",
 				Value: stmt.Jira.Lit,
 				Short: true,
 			})
