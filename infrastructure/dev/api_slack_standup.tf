@@ -1,6 +1,3 @@
-# lambda function name (injected by apex)
-variable "apex_function_slack_standup" {}
-
 # api resource for slack slash commands
 resource "aws_api_gateway_resource" "Slack" {
   rest_api_id = "${aws_api_gateway_rest_api.api.id}"

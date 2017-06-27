@@ -4,13 +4,15 @@
   "memory": 128,
   "timeout": 5,
   "profile": "standup-dev",
-  "role": "",
+  "role": "arn:aws:iam::065895952035:role/standup-dev-lambda-function",
+  "retainedVersions": 5,
   "environment": {
-    "SLACK_CLIENT_ID": "",
-    "SLACK_CLIENT_SECRET": "",
-    "SLACK_TOKEN": "",
-    "SLACK_STANDUP_CHANNEL": "",
-    "SLACK_AUTHENTICATION_TOKEN": "",
-    "AWS_DYNAMODB_TABLE_STATUS_EVENTS": ""
+    "SLACK_CLIENT_ID": "13654488692.203881833750",
+    "SLACK_CLIENT_SECRET": "42dce417f469be543e445d92082551ea",
+    "SLACK_TOKEN": "Te0bzEl9bIc1ZDW5nyUvX1nB",
+    "SLACK_STANDUP_CHANNEL": "C5YKFQ62V",
+    "SLACK_AUTHENTICATION_TOKEN": "xoxp-13654488692-13657782515-203270521268-55063113e34c0dd9cd397988ce3950b3",
+    "AWS_DYNAMODB_TABLE_STATUS_EVENTS": "standup-dev-status-events",
+    "AWS_DYNAMODB_TABLE_STATUS_AGGREGATES": "standup-dev-status-aggregates"
   }
 }

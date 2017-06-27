@@ -8,6 +8,8 @@ import (
 
 	"encoding/json"
 
+	"net/http"
+
 	"bitbucket.org/RocksauceStudios/standup-lambda/modules/slack"
 	"bitbucket.org/RocksauceStudios/standup-lambda/modules/standup"
 	"github.com/altairsix/eventsource"
@@ -21,6 +23,12 @@ import (
 
 type message struct {
 	Body string `json:"body"`
+}
+
+type response struct {
+	StatusCode int               `json:"statusCode"`
+	Headers    map[string]string `json:"headers"`
+	Body       string            `json:"body"`
 }
 
 type Event struct {
@@ -68,8 +76,7 @@ func main() {
 			dynamodbstore.WithRegion(os.Getenv("AWS_REGION")),
 		)
 		if err != nil {
-			log.Errorf("error creating store: %v", err)
-			return nil, err
+			return nil, fmt.Errorf("error creating store: %v", err)
 		}
 
 		// create eventsource repo
@@ -90,14 +97,12 @@ func main() {
 			Text:         event.Text,
 		})
 		if err != nil {
-			log.Errorf("error dispatching command: %v", err)
-			return nil, err
+			return nil, fmt.Errorf("error dispatching command: %v", err)
 		}
 
 		aggregate, err := repo.Load(ctx, id.String())
 		if err != nil {
-			log.Errorf("error loading aggregate: %v", err)
-			return nil, err
+			return nil, fmt.Errorf("error loading aggregate: %v", err)
 		}
 
 		// Send slack message to `SLACK_STANDUP_CHANNEL`
@@ -106,10 +111,20 @@ func main() {
 			os.Getenv("SLACK_STANDUP_CHANNEL"),
 			aggregate.(*standup.Status),
 		); err != nil {
-			log.Errorf("error posting to Slack: %v", err)
-			return nil, err
+			return nil, fmt.Errorf("error posting to Slack: %v", err)
 		}
 
-		return nil, nil
+		var body string = ""
+		if event.ChannelID != os.Getenv("SLACK_STANDUP_CHANNEL") {
+			body = `{"response_type": "ephemeral", "text": "status submitted in #standup channel"}`
+		}
+
+		return response{
+			StatusCode: http.StatusOK,
+			Headers: map[string]string{
+				"Content-Type": "application/json",
+			},
+			Body: body,
+		}, nil
 	})
 }

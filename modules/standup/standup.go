@@ -49,13 +49,13 @@ type StatusSubmitted struct {
 
 // Aggregate
 type Status struct {
-	ID          string
-	Version     int
-	TeamID      string
-	UserID      string
-	Statement   *parser.Statement
-	Text        string
-	SubmittedAt time.Time
+	ID          string            `json:"id"`
+	Version     int               `json:"version"`
+	TeamID      string            `json:"team_id"`
+	UserID      string            `json:"user_id"`
+	Statement   *parser.Statement `json:"statement"`
+	Text        string            `json:"text"`
+	SubmittedAt time.Time         `json:"submitted_at"`
 }
 
 // On applies an event on an Aggregate
@@ -66,12 +66,11 @@ func (item *Status) On(event eventsource.Event) error {
 		item.ID = v.Model.ID
 
 		p := parser.New(strings.NewReader(v.Text))
-		statement, err := p.Parse()
-		if err != nil {
-			return err
+		if statement, err := p.Parse(); err == nil {
+			item.Statement = statement
 		}
-		item.Statement = statement
 
+		item.Text = v.Text
 		item.TeamID = v.TeamID
 		item.UserID = v.UserID
 		item.SubmittedAt = time.Now()

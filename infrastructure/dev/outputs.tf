@@ -26,3 +26,7 @@ output "vpc_id" {
 output "dynamodb_status_events_tablename" {
   value = "${aws_dynamodb_table.status_events_table.id}"
 }
+
+output "dynamodb_status_aggregates_tablename" {
+  value = "${aws_dynamodb_table.status_aggregates_table.id}"
+}

@@ -5,7 +5,7 @@
   branch = "master"
   name = "bitbucket.org/RocksauceStudios/standup-parser"
   packages = ["."]
-  revision = "060088b7a6299dcddaa775684a2308eb370e04ec"
+  revision = "33666516d2b1503ec6ec8d866548456ad4bcc4a4"
 
 [[projects]]
   branch = "master"
@@ -76,6 +76,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "8565cd59536f440c39f3468ef76c088ffe2bbe6a594980d654be9d9baaca4203"
+  inputs-digest = "5dc3121064e5132b1d722ea5ed83d25fa06b41f9ad39665eb1cbfb574bfe3ad7"
   solver-name = "gps-cdcl"
   solver-version = 1

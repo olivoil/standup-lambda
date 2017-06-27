@@ -13,6 +13,10 @@ variable "apex_environment" {
   default = "dev"
 }
 
+# lambda function name (injected by apex)
+variable "apex_function_slack_standup" {}
+variable "apex_function_aggregate_status_events" {}
+
 #
 # private subnet ranges
 #
