@@ -24,8 +24,6 @@ func main() {
 
 	dynamo.HandleFunc(func(event *dynamo.Event, bg *apex.Context) (err error) {
 
-		log.Infof("event: %#v", event)
-
 		// create dynamodb store for events
 		store, err := dynamodbstore.New(
 			os.Getenv("AWS_DYNAMODB_TABLE_STATUS_EVENTS"),
@@ -44,7 +42,6 @@ func main() {
 		)
 
 		for _, record := range event.Records {
-			log.Infof("record: %#v", record)
 			ctx := context.Background()
 
 			switch record.EventName {
