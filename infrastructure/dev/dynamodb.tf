@@ -38,6 +38,9 @@ resource "aws_lambda_event_source_mapping" "status_events_source_mapping" {
   starting_position = "TRIM_HORIZON"
 }
 
+#
+# dynamodb table for status_events aggregates
+#
 resource "aws_dynamodb_table" "status_aggregates_table" {
   name = "${var.project}-${var.apex_environment}-status-aggregates"
   read_capacity = 10
