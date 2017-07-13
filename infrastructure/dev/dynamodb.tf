@@ -3,8 +3,8 @@
 #
 resource "aws_dynamodb_table" "status_events_table" {
   name = "${var.project}-${var.apex_environment}-status-events"
-  read_capacity = 5
-  write_capacity = 10
+  read_capacity = 1
+  write_capacity = 1
   hash_key = "key"
   range_key = "partition"
   stream_enabled = "true"
@@ -43,8 +43,8 @@ resource "aws_lambda_event_source_mapping" "status_events_source_mapping" {
 #
 resource "aws_dynamodb_table" "status_aggregates_table" {
   name = "${var.project}-${var.apex_environment}-status-aggregates"
-  read_capacity = 10
-  write_capacity = 5
+  read_capacity = 1
+  write_capacity = 1
   hash_key = "id"
 
   attribute {

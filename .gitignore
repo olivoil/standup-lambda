@@ -1,3 +1,5 @@
 .idea
 vendor
 dev.json
+lp_google_dev_client_id.json
+infrastructure/dev/.terraform

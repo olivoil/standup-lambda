@@ -10,14 +10,14 @@ import (
 
 	"net/http"
 
-	"bitbucket.org/RocksauceStudios/standup-lambda/modules/slack"
-	"bitbucket.org/RocksauceStudios/standup-lambda/modules/standup"
 	"github.com/altairsix/eventsource"
 	"github.com/altairsix/eventsource/dynamodbstore"
 	"github.com/apex/go-apex"
 	"github.com/apex/log"
 	jlog "github.com/apex/log/handlers/json"
 	"github.com/gorilla/schema"
+	"github.com/olivoil/standup-lambda/modules/slack"
+	"github.com/olivoil/standup-lambda/modules/standup"
 	"github.com/segmentio/ksuid"
 )
 

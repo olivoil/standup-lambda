@@ -6,8 +6,8 @@ import (
 	"strings"
 	"time"
 
-	"bitbucket.org/RocksauceStudios/standup-parser"
 	"github.com/altairsix/eventsource"
+	"github.com/olivoil/standup-parser"
 )
 
 // SubmitStatus is a command to submit a status

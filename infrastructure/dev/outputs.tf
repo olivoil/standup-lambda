@@ -7,6 +7,9 @@ output "api_gateway_role_id" {
   value = "${module.iam.api_gateway_role_id}"
 }
 
+output "cognito_identity_pool_id" {
+  value = "${aws_cognito_identity_pool.dev.id}"
+}
 output "lambda_security_group_id" {
   value = "${aws_security_group.lambda_security_group.id}"
 }

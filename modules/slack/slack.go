@@ -1,9 +1,9 @@
 package slack
 
 import (
-	"bitbucket.org/RocksauceStudios/standup-lambda/modules/standup"
-	"bitbucket.org/RocksauceStudios/standup-parser"
 	"github.com/nlopes/slack"
+	"github.com/olivoil/standup-lambda/modules/standup"
+	"github.com/olivoil/standup-parser"
 )
 
 // PostStatusToSlack posts a status to a channel in Slack

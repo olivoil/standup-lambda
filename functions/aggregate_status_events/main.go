@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"os"
 
-	"bitbucket.org/RocksauceStudios/standup-lambda/modules/standup"
 	"github.com/altairsix/eventsource"
 	"github.com/altairsix/eventsource/dynamodbstore"
 	"github.com/apex/go-apex"
@@ -17,6 +16,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbattribute"
+	"github.com/olivoil/standup-lambda/modules/standup"
 )
 
 func main() {
